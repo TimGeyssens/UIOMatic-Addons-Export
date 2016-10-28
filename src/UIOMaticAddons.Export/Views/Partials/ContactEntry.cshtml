@@ -1,0 +1,37 @@
+﻿@model TestUIOMatic2Take3.Models.ContactEntry
+@using TestUIOMatic2Take3.Controllers;
+
+
+@if (TempData["success"] != null)
+{
+    <p>Thank you for your message!</p>
+}
+else
+{
+    using (Html.BeginUmbracoForm<ContactController>("HandlePost"))
+    {
+        <div>
+            @Html.LabelFor(m => m.Name)
+            @Html.TextBoxFor(x => x.Name)
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(x => x.Email)
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.Message)
+            @Html.TextAreaFor(x => x.Message)
+            @Html.ValidationMessageFor(m => m.Message)
+        </div>
+
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    }
+
+}
+

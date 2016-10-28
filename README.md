@@ -2,7 +2,7 @@
 [![NuGet release](https://img.shields.io/nuget/v/Nibble.Umbraco.UIOMatic.Addons.Export.svg)](https://www.nuget.org/packages/Nibble.Umbraco.UIOMatic.Addons.Export)
 
 # UIOMatic-Addons-Export
-Addon for UIOMatic to allow exporting of List View data
+Addon for [UI-O-Matic](https://github.com/TimGeyssens/UIOMatic) to allow exporting of List View data
 
 ##Usage##
 Just populate the ListViewActions parameter on your UIOMatic attribute with the Actions you wish to supply

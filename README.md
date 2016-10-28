@@ -9,6 +9,10 @@ Just populate the ListViewActions parameter on your UIOMatic attribute with the 
     
     ListViewActions = new[]{ typeof(ExportAction)})]
 
+Now you should get an addditional actions dropdown with the Export option
+
+![](example.png)
+
 ##Full Example##
 
 

@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using UIOMaticAddons.Export.Controllers;
-using UIOMaticAddons.Export.Models;
 using Umbraco.Core;
 using Umbraco.Core.Persistence;
 using Umbraco.Web.UI.JavaScript;
@@ -16,15 +15,15 @@ namespace UIOMaticAddons.Export
     {
         protected override void ApplicationStarted(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
         {
-            var ctx = applicationContext.DatabaseContext;
-            var db = new DatabaseSchemaHelper(ctx.Database, applicationContext.ProfilingLogger.Logger, ctx.SqlSyntax);
+            //var ctx = applicationContext.DatabaseContext;
+            //var db = new DatabaseSchemaHelper(ctx.Database, applicationContext.ProfilingLogger.Logger, ctx.SqlSyntax);
 
-            //Check if the DB table does NOT exist
-            if (!db.TableExist("ContactEntries"))
-            {
-                //Create DB table - and set overwrite to false
-                db.CreateTable(false, typeof(ContactEntry));
-            }
+            ////Check if the DB table does NOT exist
+            //if (!db.TableExist("ContactEntries"))
+            //{
+            //    //Create DB table - and set overwrite to false
+            //    db.CreateTable(false, typeof(ContactEntry));
+            //}
 
             ServerVariablesParser.Parsing += ServerVariablesParser_Parsing;
         }

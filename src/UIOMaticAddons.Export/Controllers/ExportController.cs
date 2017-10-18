@@ -6,6 +6,7 @@ using System.IO;
 using System.Reflection;
 using Umbraco.Core.IO;
 using Umbraco.Web.Editors;
+using System.Text;
 
 namespace UIOMaticAddons.Export.Controllers
 {
@@ -15,7 +16,9 @@ namespace UIOMaticAddons.Export.Controllers
         {
             var guid = Guid.NewGuid();
 
-            using (var textWriter = File.CreateText(IOHelper.MapPath(@"~\App_Plugins\UIOMaticAddons\Exports\" + guid + ".csv")))
+            using (var textWriter = new StreamWriter(
+                File.Open(IOHelper.MapPath(@"~\App_Plugins\UIOMaticAddons\Exports\" + guid + ".csv"), FileMode.CreateNew), 
+                Encoding.GetEncoding("iso-8859-1")))
             {
                 textWriter.NewLine = "\n";
                 using (var csv = new CsvWriter(textWriter))

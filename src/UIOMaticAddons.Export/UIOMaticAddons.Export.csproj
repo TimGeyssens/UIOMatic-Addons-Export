@@ -485,6 +485,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Configuration\UIOMaticConfiguration.cs" />
     <Compile Include="Controllers\ExportController.cs" />
     <Compile Include="ExportAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

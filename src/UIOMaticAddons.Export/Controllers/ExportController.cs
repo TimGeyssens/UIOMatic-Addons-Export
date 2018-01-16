@@ -7,11 +7,17 @@ using System.Reflection;
 using Umbraco.Core.IO;
 using Umbraco.Web.Editors;
 using System.Text;
+using UIOMaticAddons.Export.Configuration;
 
 namespace UIOMaticAddons.Export.Controllers
 {
     public class ExportController: UmbracoAuthorizedJsonController
     {
+        private readonly UIOMaticConfiguration _config;
+        public ExportController(UIOMaticConfiguration config)
+        {
+            _config = config;
+        }
         public object GetExport(string typeAlias)
         {
             var guid = Guid.NewGuid();
@@ -27,7 +33,7 @@ namespace UIOMaticAddons.Export.Controllers
 
                     var data = os.GetAll(UIOMatic.Helper.GetUIOMaticTypeByAlias(typeAlias));
 
-                    csv.Configuration.Delimiter = ";";
+                    csv.Configuration.Delimiter = _config.Delimiter;
                     //csv.Configuration.QuoteAllFields = true;
                     csv.Configuration.HasHeaderRecord = true;
 

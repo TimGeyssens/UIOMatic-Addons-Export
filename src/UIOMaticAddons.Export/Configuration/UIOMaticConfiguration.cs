@@ -14,7 +14,7 @@ namespace UIOMaticAddons.Export.Configuration
             {
                 return new UIOMaticConfiguration
                 {
-                    Delimiter = nameValueCollection["DelimiterKey"]
+                    Delimiter = nameValueCollection["iomatic:DelimeterKey"]
                 };
             }
             catch (Exception ex)

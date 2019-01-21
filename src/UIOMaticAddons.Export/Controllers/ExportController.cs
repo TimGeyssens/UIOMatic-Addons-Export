@@ -33,7 +33,13 @@ namespace UIOMaticAddons.Export.Controllers
 
                     //csv.WriteRecords(data);
 
-                  
+                    //Write Header Row
+					UIOMaticTypeInfo typeInfo = os.GetTypeInfo(UIOMatic.Helper.GetUIOMaticTypeByAlias(typeAlias), true);
+					foreach (var item in typeInfo.EditableProperties)
+					{
+						csv.WriteField(item.Name);
+					}
+					csv.NextRecord();
                     
 
                     foreach (var item in data)

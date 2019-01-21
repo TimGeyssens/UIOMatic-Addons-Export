@@ -7,6 +7,7 @@ using System.Reflection;
 using Umbraco.Core.IO;
 using Umbraco.Web.Editors;
 using System.Text;
+using UIOMatic.Models;
 
 namespace UIOMaticAddons.Export.Controllers
 {

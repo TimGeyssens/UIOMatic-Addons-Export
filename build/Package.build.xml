@@ -14,7 +14,7 @@
 	<!-- SHARED PROPERTIES -->
 	<PropertyGroup>
 		<PackageName>UI-O-Matic Addons Export</PackageName>
-		<MinUmbracoVersion>7.3.0</MinUmbracoVersion>
+		<MinUmbracoVersion>8.0.0</MinUmbracoVersion>
 		<Readme>Addons for UI-O-Matic that allows you to export data</Readme>
 		<AuthorName>Tim Geyssens</AuthorName>
 		<AuthorUrl>http://nibble.be</AuthorUrl>
@@ -38,11 +38,11 @@
   
 
 	<PropertyGroup>
-		<VersionMajor>1</VersionMajor>
+		<VersionMajor>2</VersionMajor>
 		<VersionMinor>0</VersionMinor>
-		<VersionPatch>2</VersionPatch>
+		<VersionPatch>0</VersionPatch>
 		<VersionSuffix></VersionSuffix>
-		<UmbracoVersion>7.3.0</UmbracoVersion>
+		<UmbracoVersion>8.0.0</UmbracoVersion>
 	</PropertyGroup>
 
 	<PropertyGroup>

@@ -1,5 +1,5 @@
 ﻿angular.module("umbraco").controller("UIOMatic.FieldEditors.Pickers.MediaController",
-    function ($scope, $routeParams, dialogService, entityResource, iconHelper) {
+    function ($scope, $routeParams, editorService, entityResource, iconHelper) {
 
         function init() {
 
@@ -19,11 +19,17 @@
             }
 
             $scope.openMediaPicker = function () {
-                var d = dialogService.treePicker({
+                editorService.treePicker({
                     section: "media",
                     treeAlias: "media",
                     multiPicker: false,
-                    callback: populate
+                    submit: function (model) {
+                        populate(model.selection[0]);
+                        editorService.close();
+                    },
+                    close: function () {
+                        editorService.close();
+                    }
                 });
             };
 
@@ -43,10 +49,13 @@
             }
         };
 
-        if ($scope.valuesLoaded) {
+        var appScope = $scope;
+        while (appScope && typeof appScope === 'object' && typeof appScope.currentSection === 'undefined') appScope = appScope.$parent;
+
+        if (appScope.valuesLoaded) {
             init();
         } else {
-            var unsubscribe = $scope.$on('valuesLoaded', function () {
+            var unsubscribe = appScope.$on('valuesLoaded', function () {
                 init();
                 unsubscribe();
             });

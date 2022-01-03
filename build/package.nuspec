@@ -17,7 +17,7 @@
     <tags></tags>
     <dependencies>
       <dependency id="CsvHelper" version="2.16.3" />
-      <dependency id="Nibble.Umbraco.UIOMatic" version="2.0.0" />
+      <dependency id="Nibble.Umbraco.UIOMatic" version="3.1.1" />
     </dependencies>
   </metadata>
 </package>

@@ -1,7 +1,9 @@
 ﻿angular.module("umbraco").controller("UIOMatic.FieldEditors.List",
     function ($scope, $location, uioMaticObjectResource, $routeParams) {
 
-        $scope.filterId = $routeParams.id.split("?")[0];
+        if ($routeParams.id.includes("?ta=")) {
+            $scope.filterId = $routeParams.id.split("?")[0];
+        }
         $scope.typeAlias = $scope.property.config.typeAlias;
         $scope.foreignKeyColumn = $scope.property.config.foreignKeyColumn;
 
@@ -13,7 +15,7 @@
         $scope.initialFetch = true;
 
         function fetchData() {
-            if (!isNaN($scope.filterId)) { // Only fetch if we have an ID (ie, editing)
+            if ($scope.filterId.length !== 0) { // Only fetch if we have something
                 uioMaticObjectResource.getPaged($scope.typeAlias, 1000, 1,
                     $scope.initialFetch ? "" : $scope.predicate,
                     $scope.initialFetch ? "" : ($scope.reverse ? "desc" : "asc"),
@@ -105,10 +107,13 @@
             $location.url(url);
         }
 
-        if ($scope.valuesLoaded) {
+        var appScope = $scope;
+        while (appScope && typeof appScope === 'object' && typeof appScope.currentSection === 'undefined') appScope = appScope.$parent;
+
+        if (appScope.valuesLoaded) {
             init();
         } else {
-            var unsubscribe = $scope.$on('valuesLoaded', function () {
+            var unsubscribe = appScope.$on('valuesLoaded', function () {
                 init();
                 unsubscribe();
             });

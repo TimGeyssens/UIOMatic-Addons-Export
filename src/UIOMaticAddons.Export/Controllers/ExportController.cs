@@ -23,7 +23,7 @@ namespace UIOMaticAddons.Export.Controllers
                 textWriter.NewLine = "\n";
                 using (var csv = new CsvWriter(textWriter))
                 {
-                    var os = new UIOMatic.Services.PetaPocoObjectService();
+                    var os = new UIOMatic.Services.NPocoObjectService();
 
                     var data = os.GetAll(UIOMatic.Helper.GetUIOMaticTypeByAlias(typeAlias));
 

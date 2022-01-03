@@ -13,7 +13,7 @@ build_script:
   - msbuild build/Package.build.xml
 
 artifacts:
-  - path: artifacts\*.nupkg
+  - path: Releases\*.nupkg
   
 deploy:
   provider: NuGet
